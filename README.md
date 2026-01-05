@@ -1,8 +1,4 @@
 [![NPM Version](https://img.shields.io/npm/v/@designervoid/ton-design-system.svg?style=flat&color=blue)](https://www.npmjs.com/package/@designervoid/ton-design-system)  
-[![Telegram System Design DAO Forum][telegram-system-design-dao-badge]][telegram-system-design-dao-url]
-
-[telegram-system-design-dao-badge]: https://img.shields.io/badge/-System%20Design%20DAO%20Forum-2CA5E0?style=flat&logo=telegram&logoColor=white  
-[telegram-system-design-dao-url]: https://t.me/systemdesigndao_forum
 
 
 # TON Design System
