@@ -63,6 +63,8 @@
 
 ![Screenshot](./docs/images/ios-web-shadcn.png)
 
+[`ton-design-system/registry/ios-web-shadcn`](https://github.com/viperfoundation/ton-design-system/blob/master/registry/ios-web-shadcn)
+
 ## License
 
 MIT

@@ -13,6 +13,14 @@ Great for prototyping iOS apps design in Web.
 - Mock data for fast prototyping in `src/app/data/mockData.ts`
 - React + React Router + Tailwind CSS + Motion
 
+## Why not just use SwiftUI/UIKit or Figma?
+
+- One prototype source is easier to maintain than designing in one tool and rebuilding in another; code-to-code is also easier than going from Figma to code
+- Not every solo builder has access to macOS for creating or even opening native iOS projects
+- Web-based prototypes are lighter and faster to iterate on than full iOS apps
+- Great for quickly testing flows, UI ideas, and interactions without the overhead of native setup
+- Also works great for Telegram Mini Apps when you want an iOS-like design language
+
 ## Quick Start
 
 ```bash
