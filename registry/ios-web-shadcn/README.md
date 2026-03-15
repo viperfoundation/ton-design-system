@@ -1,38 +1,73 @@
 # iOS Web ShadCN
 
-Great for prototyping iOS apps design in Web.
+<p align="center">
+  <strong>Prototype iOS-style interfaces on the web with a fast React workflow.</strong>
+</p>
 
-![Screenshot](../../docs/images/ios-web-shadcn.png)
+<p align="center">
+  Built for quick UI exploration, clickable flows, and lightweight mobile product demos.
+</p>
 
-# Contains
+![Workbench Preview](../../docs/images/workbench-ios-web-shadcn.png)
 
-- iOS-style messaging prototype for Web
-- Conversation list screen
-- Chat screen with mock messages
-- Profile screen
-- Mock data for fast prototyping in `src/app/data/mockData.ts`
-- React + React Router + Tailwind CSS + Motion
+![App Preview](../../docs/images/ios-web-shadcn.png)
 
-## Why not just use SwiftUI/UIKit or Figma?
+## Overview
 
-- One prototype source is easier to maintain than designing in one tool and rebuilding in another; code-to-code is also easier than going from Figma to code
-- Not every solo builder has access to macOS for creating or even opening native iOS projects
-- Web-based prototypes are lighter and faster to iterate on than full iOS apps
-- Great for quickly testing flows, UI ideas, and interactions without the overhead of native setup
-- Also works great for Telegram Mini Apps when you want an iOS-like design language
+`ios-web-shadcn` is a compact iOS-inspired web prototype built with React, React Router, Tailwind CSS, and Motion.
+
+It is a strong fit when you want to:
+
+- prototype mobile screens directly in code
+- iterate faster than a native iOS setup
+- share a working flow with teammates or clients
+- explore iOS-like UI patterns for web apps or Telegram Mini Apps
+
+## Contain
+
+- Messages screen with searchable conversation list
+- Chat screen with animated mock messages
+- Profile screen with iOS-style grouped settings
+- Ready-to-edit mock data in `src/app/data/mockData.ts`
+- Lightweight app structure with React Router navigation
+
+## Screens
+
+| Screen     | Description                                         |
+| ---------- | --------------------------------------------------- |
+| `Messages` | Main inbox with avatars, unread badges, and search  |
+| `Chat`     | Conversation view with message bubbles and composer |
+| `Profile`  | Simple account page with grouped settings rows      |
+
+## Why web-first
+
+- One prototype source is easier to maintain than designing in one tool and rebuilding in another
+- You can iterate on real UI states, flows, and interactions instead of static mockups
+- Web prototypes are fast to launch, easy to share, and simple to host
+- Not every builder wants the overhead of SwiftUI, UIKit, or a full native toolchain
+- The visual language transfers well to web products that want an iOS feel
+
+## Stack
+
+- `React`
+- `React Router`
+- `Tailwind CSS`
+- `Motion`
+- `TypeScript`
 
 ## Quick Start
 
 ```bash
 git clone git@github.com:systemdesigndao/ton-design-system.git
-
 cd ton-design-system/registry/ios-web-shadcn
 
-pnpm i
+pnpm install
+pnpm dev
+```
 
-# dev
-pnpm run dev
+## Production Preview
 
-# preview
-pnpm run build && pnpm run preview
+```bash
+pnpm build
+pnpm preview
 ```
