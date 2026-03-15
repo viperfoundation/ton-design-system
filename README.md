@@ -1,5 +1,4 @@
-[![NPM Version](https://img.shields.io/npm/v/@designervoid/ton-design-system.svg?style=flat&color=blue)](https://www.npmjs.com/package/@designervoid/ton-design-system)  
-
+[![NPM Version](https://img.shields.io/npm/v/@designervoid/ton-design-system.svg?style=flat&color=blue)](https://www.npmjs.com/package/@designervoid/ton-design-system)
 
 # TON Design System
 
@@ -40,11 +39,15 @@
 - Ready to go patterns
 
   A folder (registry/patterns) with pre-built, customizable UI patterns, enabling quick prototyping and reusable components for rapid development.  
-Checkout [patterns](https://github.com/systemdesigndao/ton-design-system/tree/master/registry#patterns).
+  Checkout [patterns](https://github.com/systemdesigndao/ton-design-system/tree/master/registry#patterns).
 
 - CLI
 
   You can copy projects and components from the `registry` with the CLI. See [TDS Wiki Quick Start](https://github.com/systemdesigndao/ton-design-system/wiki/Quick-start).
+
+- iOS Web shadcn
+
+  Prototype right in Web using AI tools.
 
 ## More examples
 
@@ -52,7 +55,13 @@ Checkout [patterns](https://github.com/systemdesigndao/ton-design-system/tree/ma
 - Example of usage with [`next-typescript`](https://github.com/designervoid/ton-design-system-next-typescript)
 - Example of usage with [`rn-typescript`](https://github.com/designervoid/ton-design-system-rn-typescript)
 
+### Raw
+
 ![Screenshot](./docs/images/App.jpeg)
+
+### iOS Web shadcn
+
+![Screenshot](./docs/images/ios-web-shadcn.png)
 
 ## License
 
