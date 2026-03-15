@@ -1,4 +1,4 @@
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, MessageCircle, User } from "lucide-react";
 import { Link } from "react-router";
 
 export function Profile() {
@@ -47,12 +47,14 @@ export function Profile() {
       {/* Bottom Tab Bar */}
       <div className="h-20 bg-[#1C1C1E]/95 backdrop-blur-lg border-t border-white/10 flex items-center justify-around pb-5">
         <Link to="/" className="flex flex-col items-center gap-1">
-          <div className="w-6 h-6 rounded-full bg-white/30" />
+          <MessageCircle className="w-6 h-6 text-white/60" />
           <span className="text-[10px] text-white/60">Messages</span>
         </Link>
         <div className="flex flex-col items-center gap-1">
-          <div className="w-6 h-6 rounded-full bg-[#0A84FF]" />
-          <span className="text-[10px] text-[#0A84FF] font-medium">Profile</span>
+          <User className="w-6 h-6 text-[#0A84FF]" />
+          <span className="text-[10px] text-[#0A84FF] font-medium">
+            Profile
+          </span>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { Search, Edit } from "lucide-react";
+import { Search, Edit, MessageCircle, User } from "lucide-react";
 import { Link } from "react-router";
 import { conversations } from "../data/mockData";
 import { motion } from "motion/react";
@@ -74,11 +74,13 @@ export function ConversationList() {
       {/* Bottom Tab Bar */}
       <div className="h-20 bg-[#1C1C1E]/95 backdrop-blur-lg border-t border-white/10 flex items-center justify-around pb-5">
         <div className="flex flex-col items-center gap-1">
-          <div className="w-6 h-6 rounded-full bg-[#0A84FF]" />
-          <span className="text-[10px] text-[#0A84FF] font-medium">Messages</span>
+          <MessageCircle className="w-6 h-6 text-[#0A84FF]" />
+          <span className="text-[10px] text-[#0A84FF] font-medium">
+            Messages
+          </span>
         </div>
         <Link to="/profile" className="flex flex-col items-center gap-1">
-          <div className="w-6 h-6 rounded-full bg-white/30" />
+          <User className="w-6 h-6 text-white/60" />
           <span className="text-[10px] text-white/60">Profile</span>
         </Link>
       </div>
