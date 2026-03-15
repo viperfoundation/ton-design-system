@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 
 export function ConversationList() {
   return (
-    <div className="h-screen bg-[#000] text-white flex flex-col max-w-[430px] mx-auto">
+    <div className="flex h-full w-full flex-col bg-[#000] text-white">
       {/* Header */}
       <div className="px-6 pt-8 pb-2">
         <div className="flex items-center justify-between mb-6">

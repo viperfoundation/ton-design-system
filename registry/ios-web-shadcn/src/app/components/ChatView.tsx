@@ -11,11 +11,15 @@ export function ChatView() {
   const [inputValue, setInputValue] = useState("");
 
   if (!conversation) {
-    return <div>Conversation not found</div>;
+    return (
+      <div className="flex h-full w-full items-center justify-center bg-[#000] text-white">
+        Conversation not found
+      </div>
+    );
   }
 
   return (
-    <div className="h-screen bg-[#000] text-white flex flex-col max-w-[430px] mx-auto">
+    <div className="flex h-full w-full flex-col bg-[#000] text-white">
       {/* Navigation Bar */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
         <Link to="/" className="flex items-center gap-1 text-[#0A84FF]">

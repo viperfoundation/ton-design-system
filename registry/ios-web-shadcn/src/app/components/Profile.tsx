@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 export function Profile() {
   return (
-    <div className="h-screen bg-[#000] text-white flex flex-col max-w-[430px] mx-auto">
+    <div className="flex h-full w-full flex-col bg-[#000] text-white">
       {/* Header */}
       <div className="px-6 pt-8 pb-6">
         <h1 className="text-[34px] font-bold tracking-tight">Profile</h1>
