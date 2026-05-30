@@ -1,11 +1,7 @@
 import { Suspense, lazy } from "react";
 import "./theme";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { RootComponent } from "./routes/__root";
-import { HomeComponent } from "./routes/index";
-import { ThemeComponent } from "./routes/theme";
-import { LottiesComponent } from "./routes/lotties";
-import { LottiesTonPackComponent } from "./routes/lotties_tonpack";
+import { useCore } from "./hooks/useCore";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { ViperComponent } from "./routes/viper";
 
 const V2Component = lazy(() =>
@@ -15,24 +11,21 @@ const V2Component = lazy(() =>
 );
 
 const App = () => {
+  useCore();
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<RootComponent />}>
-          <Route index element={<HomeComponent />} />
-          <Route path="theme" element={<ThemeComponent />} />
-          <Route
-            path="v2"
-            element={
-              <Suspense fallback={null}>
-                <V2Component />
-              </Suspense>
-            }
-          />
-          <Route path="viper" element={<ViperComponent />} />
-          <Route path="lotties" element={<LottiesComponent />} />
-          <Route path="lotties_tonpack" element={<LottiesTonPackComponent />} />
-        </Route>
+        <Route path="/" element={<Navigate to="/landing" replace />} />
+        <Route path="/landing" element={<ViperComponent />} />
+        <Route
+          path="/tds"
+          element={
+            <Suspense fallback={null}>
+              <V2Component />
+            </Suspense>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

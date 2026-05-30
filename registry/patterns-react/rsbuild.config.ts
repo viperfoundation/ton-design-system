@@ -7,6 +7,9 @@ export default defineConfig({
 		// preload: true,
 		// prefetch: true,
 	},
+	output: {
+		assetPrefix: "./",
+	},
 	plugins: [pluginReact()],
 	resolve: {
 		alias: {
