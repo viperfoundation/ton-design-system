@@ -1,7 +1,13 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import "./theme";
 import { useCore } from "./hooks/useCore";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 import { ViperComponent } from "./routes/viper";
 
 const V2Component = lazy(() =>
@@ -10,13 +16,47 @@ const V2Component = lazy(() =>
   }))
 );
 
+function RootRedirect() {
+  const location = useLocation();
+
+  return (
+    <Navigate
+      to={{
+        pathname: "/landing",
+        hash: location.hash,
+      }}
+      replace
+    />
+  );
+}
+
+function RouteHashScroller() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) {
+      return;
+    }
+
+    const id = decodeURIComponent(location.hash.slice(1));
+    const el = document.getElementById(id);
+
+    if (el) {
+      el.scrollIntoView({ behavior: "auto", block: "start" });
+    }
+  }, [location.hash, location.pathname]);
+
+  return null;
+}
+
 const App = () => {
   useCore();
 
   return (
     <BrowserRouter>
+      <RouteHashScroller />
       <Routes>
-        <Route path="/" element={<Navigate to="/landing" replace />} />
+        <Route path="/" element={<RootRedirect />} />
         <Route path="/landing" element={<ViperComponent />} />
         <Route
           path="/tds"

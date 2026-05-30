@@ -101,10 +101,16 @@ export function ViperComponent() {
                 Network
               </a>
               <a
-                href="#whitepaper"
+                href="#source"
                 className="transition hover:text-slate-950 dark:hover:text-white"
               >
-                Whitepaper
+                Source
+              </a>
+              <a
+                href="#contact"
+                className="transition hover:text-slate-950 dark:hover:text-white"
+              >
+                Contact
               </a>
             </nav>
           </header>
@@ -367,7 +373,7 @@ export function ViperComponent() {
       </section>
 
       <section
-        id="whitepaper"
+        id="source"
         className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8"
       >
         <div className="rounded-[2.2rem] border border-slate-200 bg-[linear-gradient(135deg,#e0f2fe_0%,#ffffff_45%,#f8fafc_100%)] p-8 dark:border-white/10 dark:bg-[linear-gradient(135deg,rgba(8,47,73,0.7)_0%,rgba(255,255,255,0.04)_48%,rgba(255,255,255,0.02)_100%)] lg:p-10">
@@ -431,6 +437,39 @@ export function ViperComponent() {
                 className="flex items-center h-12 rounded-full border-0 bg-sky-500 px-7 text-white shadow-[0_16px_40px_rgba(14,165,233,0.35)] hover:bg-sky-400"
               >
                 Start with Viper
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="contact"
+        className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8"
+      >
+        <div className="border-t border-slate-200/70 pt-6 dark:border-white/10">
+          <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-start">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-slate-500 dark:text-slate-400">
+                Support
+              </p>
+              <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300">
+                Need help or want to contact us? Open support inside Viper with
+                a direct deeplink.
+                <span className="block mt-1 text-slate-500 dark:text-slate-400">
+                  Currently pending in Viper 1.4 for App Store release.
+                </span>
+              </p>
+            </div>
+            <div className="flex flex-col gap-2 lg:items-end">
+              <span className="text-[11px] uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">
+                Deep link
+              </span>
+              <a
+                href="viper://u/support"
+                className="font-mono text-sm text-sky-700 underline-offset-4 transition hover:underline dark:text-sky-300"
+              >
+                viper://u/support
               </a>
             </div>
           </div>
