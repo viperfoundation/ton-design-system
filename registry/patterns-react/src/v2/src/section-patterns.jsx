@@ -147,7 +147,7 @@ const PatternsSection = () => {
         </div>
 
         <Card title="Top validators">
-          <div style={{ margin: "-24px" }}>
+          <div className="table-scroll" style={{ margin: "-24px" }}>
             <table className="table">
               <thead>
                 <tr><th>Validator</th><th>Stake</th><th>APR</th><th>Uptime</th><th>Commission</th><th></th></tr>

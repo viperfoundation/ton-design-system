@@ -60,6 +60,49 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .spacer { flex: 1 1 auto; }
 .hidden { display: none !important; }
 
+@media (max-width: 900px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .row .spacer {
+    display: none;
+  }
+
+  .row-wrap {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .stack {
+    gap: var(--space-2);
+  }
+
+  .row {
+    gap: var(--space-2);
+  }
+
+  .t-5xl {
+    font-size: var(--text-4xl);
+  }
+
+  .t-4xl {
+    font-size: var(--text-3xl);
+  }
+
+  .t-3xl {
+    font-size: var(--text-2xl);
+  }
+}
+
 /* Text */
 .t-xs   { font-size: var(--text-xs);   line-height: var(--leading-snug); }
 .t-sm   { font-size: var(--text-sm);   line-height: var(--leading-snug); }

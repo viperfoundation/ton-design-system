@@ -101,6 +101,103 @@
 
 .content { padding: var(--space-10) var(--space-12) var(--space-16); max-width: 1200px; }
 .content-section { margin-bottom: var(--space-16); scroll-margin-top: 80px; }
+
+@media (max-width: 1024px) {
+  .app {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .sidebar {
+    position: relative;
+    height: auto;
+    width: 100%;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidebar-nav {
+    padding: var(--space-3) var(--space-3) var(--space-4);
+  }
+
+  .sidebar-foot {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .topbar {
+    padding: var(--space-3) var(--space-4);
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .topbar .crumbs {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: var(--space-1);
+  }
+
+  .content {
+    padding: var(--space-6) var(--space-4) var(--space-12);
+  }
+
+  .content-section {
+    margin-bottom: var(--space-12);
+  }
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+  }
+
+  .topbar {
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 13vw, 48px);
+  }
+
+  .hero-sub {
+    font-size: var(--text-md);
+  }
+
+  .hero-meta {
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .section-title {
+    font-size: var(--text-2xl);
+  }
+
+  .section-lead {
+    font-size: var(--text-base);
+  }
+
+  .sidebar-brand {
+    padding: var(--space-4) var(--space-4) var(--space-3);
+  }
+
+  .sidebar-brand .name {
+    font-size: var(--text-sm);
+  }
+
+  .sidebar-foot {
+    padding: var(--space-4);
+  }
+}
 .section-head { margin-bottom: var(--space-8); }
 .section-title { font-size: var(--text-3xl); line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); font-weight: 600; margin-bottom: var(--space-2); }
 .section-lead { color: var(--fg-muted); font-size: var(--text-lg); max-width: 64ch; text-wrap: pretty; }

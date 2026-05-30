@@ -297,6 +297,11 @@
 .card-body   { padding: var(--space-6); }
 .card-footer { padding: var(--space-4) var(--space-6); border-top: 1px solid var(--border-subtle); background: var(--bg-subtle); display: flex; align-items: center; gap: var(--space-3); }
 
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* ---------- Alert ---------- */
 .alert {
   display: grid;
@@ -798,3 +803,95 @@
   position: relative;
 }
 .brand-mark svg { display: block; }
+
+@media (max-width: 900px) {
+  .card-header,
+  .card-body,
+  .card-footer {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+
+  .dialog {
+    width: min(480px, calc(100vw - 1rem));
+    max-height: calc(100vh - 1rem);
+  }
+
+  .dialog-body,
+  .dialog-header,
+  .dialog-footer {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+
+  .dialog-footer {
+    flex-wrap: wrap;
+    justify-content: stretch;
+  }
+
+  .toast-stack {
+    left: var(--space-3);
+    right: var(--space-3);
+    bottom: var(--space-3);
+  }
+
+  .toast {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .parameters-panel {
+    left: var(--space-3);
+    right: var(--space-3);
+    bottom: var(--space-3);
+    width: auto;
+  }
+
+  .table {
+    min-width: 720px;
+  }
+
+  .tx-row,
+  .token-row {
+    grid-template-columns: 36px 1fr;
+    align-items: start;
+  }
+
+  .tx-amount,
+  .token-price {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  .token-price {
+    margin-top: -2px;
+  }
+}
+
+@media (max-width: 640px) {
+  .well {
+    padding: var(--space-4);
+    gap: var(--space-3);
+    min-height: 0;
+  }
+
+  .balance-amount {
+    font-size: var(--text-3xl);
+  }
+
+  .codeblock {
+    font-size: 12px;
+  }
+
+  .table {
+    min-width: 680px;
+  }
+
+  .alert {
+    grid-template-columns: 1fr;
+  }
+
+  .menu {
+    min-width: 180px;
+  }
+}
