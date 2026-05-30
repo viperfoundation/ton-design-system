@@ -16,6 +16,14 @@ export function HomeComponent() {
 			<Button
 				className="w-40"
 				onClick={() => {
+					navigate("/v2");
+				}}
+			>
+				To /v2
+			</Button>
+			<Button
+				className="w-40"
+				onClick={() => {
 					navigate("/lotties");
 				}}
 			>
