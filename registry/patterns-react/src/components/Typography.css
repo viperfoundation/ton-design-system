@@ -1,0 +1,136 @@
+.typo {
+  margin: 0;
+}
+
+.typo-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--ton-blue-700);
+}
+
+.typo-display {
+  max-width: 16ch;
+  font-size: clamp(var(--text-5xl), 5vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  color: var(--fg);
+  text-wrap: balance;
+}
+
+.typo-heading {
+  font-size: var(--text-4xl);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.typo-section {
+  font-size: var(--text-2xl);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.typo-subsection {
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  font-weight: 550;
+  color: var(--fg);
+}
+
+.typo-lead {
+  max-width: 42rem;
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  color: var(--fg-muted);
+}
+
+.typo-body {
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--fg-muted);
+}
+
+.typo-caption {
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  color: var(--fg-muted);
+}
+
+.typo-mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  color: var(--ton-blue-700);
+}
+
+.typo-tone-default {
+  color: inherit;
+}
+
+.typo-tone-primary {
+  color: var(--primary);
+}
+
+.typo-tone-accent {
+  color: var(--ton-blue-700);
+}
+
+.typo-tone-muted {
+  color: var(--fg-muted);
+}
+
+.typo-tone-subtle {
+  color: var(--fg-subtle);
+}
+
+.typo-tone-inverse {
+  color: var(--fg-on-primary);
+}
+
+[data-theme="dark"] .typo-eyebrow {
+  color: var(--ton-blue-300);
+}
+
+[data-theme="dark"] .typo-display,
+[data-theme="dark"] .typo-heading,
+[data-theme="dark"] .typo-section,
+[data-theme="dark"] .typo-subsection {
+  color: var(--fg);
+}
+
+[data-theme="dark"] .typo-lead,
+[data-theme="dark"] .typo-body,
+[data-theme="dark"] .typo-caption {
+  color: var(--fg-muted);
+}
+
+[data-theme="dark"] .typo-mono {
+  color: var(--ton-blue-300);
+}
+
+[data-theme="dark"] .typo-tone-accent {
+  color: var(--ton-blue-300);
+}
+
+[data-theme="dark"] .typo-tone-primary {
+  color: var(--primary);
+}
+
+[data-theme="dark"] .typo-tone-muted {
+  color: var(--fg-muted);
+}
+
+[data-theme="dark"] .typo-tone-subtle {
+  color: var(--fg-subtle);
+}
+
+[data-theme="dark"] .typo-tone-inverse {
+  color: var(--fg-on-primary);
+}

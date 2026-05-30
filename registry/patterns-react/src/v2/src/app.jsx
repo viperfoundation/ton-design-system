@@ -291,9 +291,15 @@ export const V2Component = () => {
             >
               Parameters
             </Button>
-            <Button variant="primary" size="sm" icon={<I.Github />}>
+            <a
+              className="btn btn-primary btn-sm"
+              href="https://github.com/viperfoundation/ton-design-system"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <I.Github />
               Source
-            </Button>
+            </a>
           </div>
 
           <div className="content">
@@ -312,9 +318,15 @@ export const V2Component = () => {
                 <Button variant="primary" size="lg" icon={<I.ArrowRight />}>
                   Get started
                 </Button>
-                <Button variant="outline" size="lg" icon={<I.Github />}>
+                <a
+                  className="btn btn-outline btn-lg"
+                  href="https://github.com/viperfoundation/ton-design-system"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <I.Github />
                   View on GitHub
-                </Button>
+                </a>
               </div>
               <div className="hero-meta">
                 <span>

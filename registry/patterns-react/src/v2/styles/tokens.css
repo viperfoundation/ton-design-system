@@ -110,7 +110,7 @@
 
   --fg:           #0F1011;
   --fg-muted:     #55595F;
-  --fg-subtle:    #8A8F96;
+  --fg-subtle:    #BBC0C7;
   --fg-on-primary:#FFFFFF;
 
   --primary:       var(--ton-blue-500);
@@ -146,7 +146,7 @@
 
   --fg:           #F4F5F6;
   --fg-muted:     #A2A7AE;
-  --fg-subtle:    #6B7077;
+  --fg-subtle:    #D4D8DE;
   --fg-on-primary:#05131F;
 
   --primary:       var(--ton-blue-400);
