@@ -305,7 +305,7 @@ export const V2Component = () => {
           <div className="content">
             <header className="hero" id="introduction">
               <Badge variant="outline" style={{ marginBottom: 16 }}>
-                <span className="mono">v0.1.0 / original design system</span>
+                <span className="mono">v2 / original design system</span>
               </Badge>
               <h1>
                 An open design system for the <span className="accent">open network.</span>

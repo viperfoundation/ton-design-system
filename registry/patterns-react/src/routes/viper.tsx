@@ -9,7 +9,7 @@ const pillars = [
   {
     title: "Messenger-native UX",
     description:
-      "Viper treats TON as a communication layer, not a hidden backend. Wallet, identity, and actions live inside a fluent chat flow.",
+      "Viper is a messenger built around TON, where identity, addresses, and payment context can stay inside the chat interface.",
   },
   {
     title: "Mass-scale architecture",
@@ -65,15 +65,15 @@ const timeline = [
   },
   {
     step: "03",
-    title: "Send value or intent",
+    title: "Send a payment",
     description:
-      "Transfers, service calls, file access or channel actions behave like conversations, but execute on TON's routing and smart-contract model.",
+      "Once a contact resolves to a TON address, payments can be initiated from the same chat, even when execution depends on external services.",
   },
   {
     step: "04",
-    title: "Stay in motion",
+    title: "Explore the TON stack",
     description:
-      "Because TON is designed as a complete platform, Viper can keep users inside one continuous product loop instead of ejecting them into tooling.",
+      "Some flows still involve external tooling, including key creation from a mnemonic phrase, so Viper can be one way to learn and explore the TON ecosystem.",
   },
 ];
 
@@ -490,13 +490,6 @@ export function ViperComponent() {
               >
                 Need help or want to contact us? Open support inside Viper with
                 a direct deeplink.
-                <Typography
-                  variant="caption"
-                  tone="subtle"
-                  className="block mt-1!"
-                >
-                  Currently pending in Viper 1.4 for App Store release.
-                </Typography>
               </Typography>
             </div>
             <div className="flex flex-col gap-2 lg:items-end">
