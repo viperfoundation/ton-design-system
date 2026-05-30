@@ -118,7 +118,8 @@ export function ViperComponent() {
           <section className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div>
               <h1 className="max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-balance text-slate-950 sm:text-6xl lg:text-7xl dark:text-white">
-                Viper makes TON feel like a living messenger, not a cold wallet.
+                Viper makes TON feel like a living messenger, not a regular
+                wallet.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
                 A landing page for a product vision where identity, chat and
