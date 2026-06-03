@@ -77,6 +77,44 @@ const timeline = [
   },
 ];
 
+const positioningRows = [
+  {
+    direction: "Privacy",
+    signal: "Yes",
+    whatsapp: "Yes",
+    keet: "Yes",
+    viper: "Yes",
+  },
+  {
+    direction: "E2E encryption",
+    signal: "Yes",
+    whatsapp: "Yes",
+    keet: "Yes",
+    viper: "Yes",
+  },
+  {
+    direction: "Phone required",
+    signal: "Yes",
+    whatsapp: "Yes",
+    keet: "No",
+    viper: "No",
+  },
+  {
+    direction: "Cryptographic identity",
+    signal: "No",
+    whatsapp: "No",
+    keet: "Yes",
+    viper: "Yes",
+  },
+  {
+    direction: "Wallet inside communication",
+    signal: "No",
+    whatsapp: "No",
+    keet: "No",
+    viper: "Yes",
+  },
+];
+
 export function ViperComponent() {
   return (
     <div className="w-full min-h-dvh overflow-x-hidden bg-[linear-gradient(180deg,#f4fbff_0%,#dff4ff_18%,#ffffff_44%,#f3f7fb_100%)] text-slate-950 dark:bg-[linear-gradient(180deg,#04131d_0%,#071d29_20%,#0a1520_52%,#030711_100%)] dark:text-white">
@@ -290,6 +328,72 @@ export function ViperComponent() {
             </Card>
           ))}
         </div>
+      </section>
+
+      <section
+        id="positioning"
+        className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8"
+      >
+        <Card className="overflow-hidden bg-[linear-gradient(135deg,#eff6ff_0%,#ffffff_42%,#f8fafc_100%)] p-0 dark:bg-[linear-gradient(135deg,rgba(15,23,42,0.92)_0%,rgba(255,255,255,0.05)_46%,rgba(255,255,255,0.03)_100%)]">
+          <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="border-b border-slate-200/70 p-8 dark:border-white/10 lg:border-b-0 lg:border-r">
+              <Typography variant="eyebrow" tone="primary">
+                Positioning
+              </Typography>
+              <Typography as="h2" variant="heading" className="mt-4!">
+                Not another privacy messenger.
+              </Typography>
+              <Typography variant="lead" tone="subtle" className="mt-4!">
+                Viper is better framed as a TON-native communication layer built
+                around identity, messaging, and value transfer.
+              </Typography>
+            </div>
+            <div className="overflow-x-auto p-2 sm:p-4">
+              <table className="min-w-full border-separate border-spacing-0 text-left text-sm">
+                <thead>
+                  <tr className="text-slate-500 dark:text-slate-400">
+                    <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
+                      Direction
+                    </th>
+                    <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
+                      Signal
+                    </th>
+                    <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
+                      WhatsApp
+                    </th>
+                    <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
+                      Keet
+                    </th>
+                    <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
+                      Viper
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {positioningRows.map((row) => (
+                    <tr key={row.direction}>
+                      <td className="border-b border-slate-200/60 px-4 py-3 dark:border-white/10">
+                        {row.direction}
+                      </td>
+                      <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
+                        {row.signal}
+                      </td>
+                      <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
+                        {row.whatsapp}
+                      </td>
+                      <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
+                        {row.keet}
+                      </td>
+                      <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-950 dark:border-white/10 dark:text-white">
+                        {row.viper}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </Card>
       </section>
 
       <section

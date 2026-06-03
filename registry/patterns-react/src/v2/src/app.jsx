@@ -48,6 +48,7 @@ const NAV = [
     group: "Foundations",
     items: [
       { id: "introduction", label: "Introduction", icon: <I.ArrowRight /> },
+      { id: "positioning", label: "Positioning", icon: <I.Layers /> },
       { id: "colors", label: "Color", icon: <I.Palette /> },
       { id: "type", label: "Typography", icon: <I.Type /> },
       { id: "radii", label: "Shape", icon: <I.Box /> },

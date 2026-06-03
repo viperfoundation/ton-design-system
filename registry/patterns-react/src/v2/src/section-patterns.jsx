@@ -58,6 +58,14 @@ const walk = (n, start = 100, vol = 8, seed = 1) => {
   return out;
 };
 
+const POSITIONING_ROWS = [
+  ["Privacy", "Yes", "Yes", "Yes", "Yes"],
+  ["E2E encryption", "Yes", "Yes", "Yes", "Yes"],
+  ["Phone required", "Yes", "Yes", "No", "No"],
+  ["Cryptographic identity", "No", "No", "Yes", "Yes"],
+  ["Wallet inside communication", "No", "No", "No", "Yes"],
+];
+
 const PatternsSection = () => {
   const [connected, setConnected] = React.useState(true);
   const priceData = walk(40, 6.2, 0.25, 7);
@@ -146,8 +154,51 @@ const PatternsSection = () => {
           <p className="section-lead">For the dense, structured stuff.</p>
         </div>
 
+        <Card
+          title="Positioning comparison"
+          desc="Signal, WhatsApp, Keet, and Viper"
+        >
+          <div className="stack" style={{ marginBottom: 16 }}>
+            <div style={{ display: "inline-flex", alignSelf: "flex-start" }}>
+              <Badge variant="outline">communication layer for TON</Badge>
+            </div>
+            <p className="subtle p-2!">
+              Viper is closer to a combination of messenger, wallet,
+              cryptographic identity, and TON networking than to a generic
+              privacy chat app.
+            </p>
+          </div>
+          <div className="table-scroll" style={{ margin: "-24px 0 0" }}>
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Direction</th>
+                  <th>Signal</th>
+                  <th>WhatsApp</th>
+                  <th>Keet</th>
+                  <th>Viper</th>
+                </tr>
+              </thead>
+              <tbody>
+                {POSITIONING_ROWS.map(
+                  ([direction, signal, whatsapp, keet, viper]) => (
+                    <tr key={direction}>
+                      <td>{direction}</td>
+                      <td className="mono">{signal}</td>
+                      <td className="mono">{whatsapp}</td>
+                      <td className="mono">{keet}</td>
+                      <td className="mono">{viper}</td>
+                    </tr>
+                  )
+                )}
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
+        <div className="mt-4!" />
         <Card title="Top validators">
-          <div className="table-scroll" style={{ margin: "-24px" }}>
+          <div className="table-scroll m-2 p-2!" style={{ margin: "-24px" }}>
             <table className="table">
               <thead>
                 <tr><th>Validator</th><th>Stake</th><th>APR</th><th>Uptime</th><th>Commission</th><th></th></tr>
