@@ -80,38 +80,58 @@ const timeline = [
 const positioningRows = [
   {
     direction: "Privacy",
-    signal: "Yes",
-    whatsapp: "Yes",
-    keet: "Yes",
     viper: "Yes",
+    keet: "Yes",
+    session: "Yes",
+    signal: "Yes",
+    simplex: "Yes",
+    status: "Yes",
+    threema: "Yes",
+    whatsapp: "Yes",
   },
   {
     direction: "E2E encryption",
-    signal: "Yes",
-    whatsapp: "Yes",
-    keet: "Yes",
     viper: "Yes",
+    keet: "Yes",
+    session: "Yes",
+    signal: "Yes",
+    simplex: "Yes",
+    status: "Yes",
+    threema: "Yes",
+    whatsapp: "Yes",
   },
   {
     direction: "Phone required",
-    signal: "Yes",
-    whatsapp: "Yes",
-    keet: "No",
     viper: "No",
+    keet: "No",
+    session: "No",
+    signal: "Yes",
+    simplex: "No",
+    status: "No",
+    threema: "No",
+    whatsapp: "Yes",
   },
   {
     direction: "Cryptographic identity",
-    signal: "No",
-    whatsapp: "No",
-    keet: "Yes",
     viper: "Yes",
+    keet: "Yes",
+    session: "Yes",
+    signal: "No",
+    simplex: "Yes",
+    status: "Yes",
+    threema: "Yes",
+    whatsapp: "No",
   },
   {
     direction: "Wallet inside communication",
-    signal: "No",
-    whatsapp: "No",
-    keet: "No",
     viper: "Yes",
+    keet: "No",
+    session: "No",
+    signal: "No",
+    simplex: "No",
+    status: "Yes",
+    threema: "No",
+    whatsapp: "No",
   },
 ];
 
@@ -356,16 +376,28 @@ export function ViperComponent() {
                       Direction
                     </th>
                     <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
-                      Signal
-                    </th>
-                    <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
-                      WhatsApp
+                      Viper
                     </th>
                     <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
                       Keet
                     </th>
                     <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
-                      Viper
+                      Session
+                    </th>
+                    <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
+                      Signal
+                    </th>
+                    <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
+                      SimpleX
+                    </th>
+                    <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
+                      Status
+                    </th>
+                    <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
+                      Threema
+                    </th>
+                    <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
+                      WhatsApp
                     </th>
                   </tr>
                 </thead>
@@ -375,17 +407,29 @@ export function ViperComponent() {
                       <td className="border-b border-slate-200/60 px-4 py-3 dark:border-white/10">
                         {row.direction}
                       </td>
-                      <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
-                        {row.signal}
-                      </td>
-                      <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
-                        {row.whatsapp}
+                      <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-950 dark:border-white/10 dark:text-white">
+                        {row.viper}
                       </td>
                       <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
                         {row.keet}
                       </td>
-                      <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-950 dark:border-white/10 dark:text-white">
-                        {row.viper}
+                      <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
+                        {row.session}
+                      </td>
+                      <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
+                        {row.signal}
+                      </td>
+                      <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
+                        {row.simplex}
+                      </td>
+                      <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
+                        {row.status}
+                      </td>
+                      <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
+                        {row.threema}
+                      </td>
+                      <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
+                        {row.whatsapp}
                       </td>
                     </tr>
                   ))}
