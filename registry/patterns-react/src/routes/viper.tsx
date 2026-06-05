@@ -86,6 +86,7 @@ const positioningRows = [
     signal: "Yes",
     simplex: "Yes",
     status: "Yes",
+    telegram: "Yes",
     threema: "Yes",
     whatsapp: "Yes",
   },
@@ -97,6 +98,7 @@ const positioningRows = [
     signal: "Yes",
     simplex: "Yes",
     status: "Yes",
+    telegram: "Yes",
     threema: "Yes",
     whatsapp: "Yes",
   },
@@ -108,6 +110,7 @@ const positioningRows = [
     signal: "Yes",
     simplex: "No",
     status: "No",
+    telegram: "No",
     threema: "No",
     whatsapp: "Yes",
   },
@@ -119,6 +122,7 @@ const positioningRows = [
     signal: "No",
     simplex: "Yes",
     status: "Yes",
+    telegram: "Yes",
     threema: "Yes",
     whatsapp: "No",
   },
@@ -130,6 +134,7 @@ const positioningRows = [
     signal: "No",
     simplex: "No",
     status: "Yes",
+    telegram: "Yes",
     threema: "No",
     whatsapp: "No",
   },
@@ -394,6 +399,9 @@ export function ViperComponent() {
                       Status
                     </th>
                     <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
+                      Telegram
+                    </th>
+                    <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
                       Threema
                     </th>
                     <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
@@ -424,6 +432,9 @@ export function ViperComponent() {
                       </td>
                       <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
                         {row.status}
+                      </td>
+                      <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
+                        {row.telegram}
                       </td>
                       <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
                         {row.threema}
