@@ -4,6 +4,7 @@ import { Lottie } from "@/components/Lottie";
 import { LinkButton } from "@/components/LinkButton";
 import { Typography } from "@/components/Typography";
 import { Separator } from "@/components/Separator";
+import { useEffect, useRef, useState } from "react";
 
 const pillars = [
   {
@@ -77,6 +78,185 @@ const timeline = [
   },
 ];
 
+const architectureDetails = {
+  viper: {
+    product: "Viper",
+    label: "Mixed",
+    badge: "Mixed",
+    summary:
+      "Viper combines centralized infrastructure with direct peer-to-peer connections between clients.",
+    items: [
+      {
+        title: "Centralized relay",
+        description:
+          "A client connects to a centralized server relay when a direct client connection is unavailable.",
+      },
+      {
+        title: "Centralized bootstrap",
+        description:
+          "Bootstrap infrastructure helps clients discover peers and exchange the connection details needed for a direct route.",
+      },
+      {
+        title: "Direct P2P",
+        description:
+          "When network conditions allow it, clients connect directly without routing traffic through the relay.",
+      },
+    ],
+    note: "Centralized bootstrap and direct P2P is currently in dev mode and may change.",
+  },
+  keet: {
+    product: "Keet",
+    label: "Mixed",
+    summary:
+      "Keet uses direct peer-to-peer communication with supporting infrastructure for discovery and difficult network conditions.",
+    items: [
+      {
+        title: "Direct P2P",
+        description:
+          "Clients exchange data directly when a peer-to-peer route can be established.",
+      },
+      {
+        title: "Peer discovery",
+        description:
+          "Distributed discovery mechanisms help peers find each other without a traditional messaging cloud.",
+      },
+      {
+        title: "Connection fallback",
+        description:
+          "Supporting nodes can assist connectivity when NAT or firewall conditions prevent a direct route.",
+      },
+    ],
+  },
+  session: {
+    product: "Session",
+    label: "Relays",
+    summary:
+      "Session routes encrypted messages through a decentralized network of service nodes.",
+    items: [
+      {
+        title: "Onion routing",
+        description:
+          "Requests travel through multiple hops so no single relay knows both the sender and destination.",
+      },
+      {
+        title: "Service nodes",
+        description:
+          "A distributed node network stores and forwards encrypted messages instead of one central provider.",
+      },
+    ],
+  },
+  signal: {
+    product: "Signal",
+    label: "Relay",
+    summary:
+      "Signal clients use centralized service infrastructure to deliver end-to-end encrypted messages.",
+    items: [
+      {
+        title: "Server delivery",
+        description:
+          "Signal servers receive encrypted envelopes and relay them to recipient devices.",
+      },
+      {
+        title: "Encrypted payloads",
+        description:
+          "The relay coordinates delivery but cannot read message contents protected by end-to-end encryption.",
+      },
+    ],
+  },
+  simplex: {
+    product: "SimpleX",
+    label: "Relays",
+    summary:
+      "SimpleX routes messages through independent SMP relay servers without assigning users global identities.",
+    items: [
+      {
+        title: "SMP relays",
+        description:
+          "Recipient-controlled message queues on relay servers receive and forward encrypted payloads.",
+      },
+      {
+        title: "Federated choice",
+        description:
+          "Users can select different operators or run their own relay instead of depending on one network owner.",
+      },
+    ],
+  },
+  status: {
+    product: "Status",
+    label: "P2P",
+    summary:
+      "Status messaging is distributed over Waku, a peer-to-peer communication network.",
+    items: [
+      {
+        title: "Waku peers",
+        description:
+          "Peers propagate encrypted messages across the network without a single messaging server.",
+      },
+      {
+        title: "Store nodes",
+        description:
+          "Supporting nodes can retain messages temporarily for clients that were offline.",
+      },
+    ],
+  },
+  telegram: {
+    product: "Telegram",
+    label: "Cloud",
+    summary:
+      "Telegram uses centralized cloud infrastructure to store, route, and synchronize standard chats.",
+    items: [
+      {
+        title: "Cloud sync",
+        description:
+          "Messages and media are synchronized across devices through Telegram-operated data centers.",
+      },
+      {
+        title: "Secret chats",
+        description:
+          "Secret chats use end-to-end encryption and remain tied to the participating devices.",
+      },
+    ],
+  },
+  threema: {
+    product: "Threema",
+    label: "Relay",
+    summary:
+      "Threema servers relay end-to-end encrypted messages between client devices.",
+    items: [
+      {
+        title: "Server routing",
+        description:
+          "Central infrastructure locates recipients and forwards encrypted message payloads.",
+      },
+      {
+        title: "Minimal storage",
+        description:
+          "Undelivered messages are retained temporarily and removed after successful delivery.",
+      },
+    ],
+  },
+  whatsapp: {
+    product: "WhatsApp",
+    label: "Relay",
+    summary:
+      "WhatsApp uses centralized Meta infrastructure to route end-to-end encrypted messages.",
+    items: [
+      {
+        title: "Server delivery",
+        description:
+          "WhatsApp servers forward encrypted messages and temporarily queue undelivered payloads.",
+      },
+      {
+        title: "Device encryption",
+        description:
+          "Message contents remain protected between participating devices while servers coordinate delivery.",
+      },
+    ],
+  },
+} as const;
+
+type ArchitectureProduct = keyof typeof architectureDetails;
+
 const positioningRows = [
   {
     direction: "Privacy",
@@ -138,9 +318,73 @@ const positioningRows = [
     threema: "No",
     whatsapp: "No",
   },
+  {
+    direction: "Architecture",
+    viper: "Mixed",
+    keet: "Mixed",
+    session: "Relays",
+    signal: "Relay",
+    simplex: "Relays",
+    status: "P2P",
+    telegram: "Cloud",
+    threema: "Relay",
+    whatsapp: "Relay",
+  },
 ];
 
 export function ViperComponent() {
+  const [selectedArchitecture, setSelectedArchitecture] =
+    useState<ArchitectureProduct | null>(null);
+  const closePopupRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!selectedArchitecture) {
+      return;
+    }
+
+    const previouslyFocusedElement =
+      document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = "hidden";
+    closePopupRef.current?.focus();
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelectedArchitecture(null);
+      }
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+      previouslyFocusedElement?.focus();
+    };
+  }, [selectedArchitecture]);
+
+  const renderArchitectureValue = (
+    product: ArchitectureProduct,
+    value: string,
+    isArchitectureRow: boolean
+  ) =>
+    isArchitectureRow ? (
+      <button
+        type="button"
+        className="cursor-pointer whitespace-nowrap text-left underline decoration-sky-400/70 underline-offset-4 transition hover:text-sky-600 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-500 dark:hover:text-sky-300"
+        onClick={() => setSelectedArchitecture(product)}
+      >
+        {value}
+      </button>
+    ) : (
+      value
+    );
+
+  const selectedArchitectureDetails = selectedArchitecture
+    ? architectureDetails[selectedArchitecture]
+    : null;
+
   return (
     <div className="w-full min-h-dvh overflow-x-hidden bg-[linear-gradient(180deg,#f4fbff_0%,#dff4ff_18%,#ffffff_44%,#f3f7fb_100%)] text-slate-950 dark:bg-[linear-gradient(180deg,#04131d_0%,#071d29_20%,#0a1520_52%,#030711_100%)] dark:text-white">
       <div className="relative isolate">
@@ -416,31 +660,67 @@ export function ViperComponent() {
                         {row.direction}
                       </td>
                       <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-950 dark:border-white/10 dark:text-white">
-                        {row.viper}
+                        {renderArchitectureValue(
+                          "viper",
+                          row.viper,
+                          row.direction === "Architecture"
+                        )}
                       </td>
                       <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
-                        {row.keet}
+                        {renderArchitectureValue(
+                          "keet",
+                          row.keet,
+                          row.direction === "Architecture"
+                        )}
                       </td>
                       <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
-                        {row.session}
+                        {renderArchitectureValue(
+                          "session",
+                          row.session,
+                          row.direction === "Architecture"
+                        )}
                       </td>
                       <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
-                        {row.signal}
+                        {renderArchitectureValue(
+                          "signal",
+                          row.signal,
+                          row.direction === "Architecture"
+                        )}
                       </td>
                       <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
-                        {row.simplex}
+                        {renderArchitectureValue(
+                          "simplex",
+                          row.simplex,
+                          row.direction === "Architecture"
+                        )}
                       </td>
                       <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
-                        {row.status}
+                        {renderArchitectureValue(
+                          "status",
+                          row.status,
+                          row.direction === "Architecture"
+                        )}
                       </td>
                       <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
-                        {row.telegram}
+                        {renderArchitectureValue(
+                          "telegram",
+                          row.telegram,
+                          row.direction === "Architecture"
+                        )}
                       </td>
                       <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
-                        {row.threema}
+                        {renderArchitectureValue(
+                          "threema",
+                          row.threema,
+                          row.direction === "Architecture"
+                        )}
                       </td>
                       <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
-                        {row.whatsapp}
+                        {renderArchitectureValue(
+                          "whatsapp",
+                          row.whatsapp,
+                          row.direction === "Architecture"
+                        )}
                       </td>
                     </tr>
                   ))}
@@ -449,6 +729,15 @@ export function ViperComponent() {
             </div>
           </div>
         </Card>
+        <Typography
+          variant="caption"
+          tone="subtle"
+          className="mt-4! italic sm:px-6"
+        >
+          * Only the Viper information is provided firsthand by its developer.
+          Other product details are an interpretation, may be inaccurate, and
+          may change.
+        </Typography>
       </section>
 
       <section
@@ -672,6 +961,85 @@ export function ViperComponent() {
           </div>
         </Card>
       </section>
+
+      {selectedArchitectureDetails ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 p-4 backdrop-blur-sm"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) {
+              setSelectedArchitecture(null);
+            }
+          }}
+        >
+          <Card className="w-full max-w-lg border-white/20 bg-white p-7 shadow-[0_30px_100px_rgba(2,8,23,0.35)] dark:bg-slate-950">
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="architecture-popup-title"
+              aria-describedby="architecture-popup-description"
+            >
+              <Badge>
+                {"badge" in selectedArchitectureDetails
+                  ? selectedArchitectureDetails.badge
+                  : selectedArchitectureDetails.label}
+              </Badge>
+              <Typography
+                id="architecture-popup-title"
+                as="h2"
+                variant="subsection"
+                className="mt-4!"
+              >
+                {selectedArchitectureDetails.product}:{" "}
+                {selectedArchitectureDetails.label} architecture
+              </Typography>
+              <Typography
+                id="architecture-popup-description"
+                variant="body"
+                tone="subtle"
+                className="mt-3!"
+              >
+                {selectedArchitectureDetails.summary}
+              </Typography>
+              <ul className="mt-5 space-y-4">
+                {selectedArchitectureDetails.items.map((item) => (
+                  <li
+                    key={item.title}
+                    className="rounded-2xl bg-slate-100 p-4 dark:bg-white/5"
+                  >
+                    <Typography
+                      as="h3"
+                      variant="body"
+                      className="font-semibold"
+                    >
+                      {item.title}
+                    </Typography>
+                    <Typography
+                      variant="caption"
+                      tone="subtle"
+                      className="mt-1!"
+                    >
+                      {item.description}
+                    </Typography>
+                  </li>
+                ))}
+              </ul>
+              {"note" in selectedArchitectureDetails ? (
+                <Typography variant="caption" tone="subtle" className="mt-5!">
+                  {selectedArchitectureDetails.note}
+                </Typography>
+              ) : null}
+              <button
+                ref={closePopupRef}
+                type="button"
+                className="mt-6 inline-flex h-11 w-full items-center justify-center rounded-full bg-sky-500 px-6 font-medium text-white transition hover:bg-sky-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
+                onClick={() => setSelectedArchitecture(null)}
+              >
+                Got it
+              </button>
+            </div>
+          </Card>
+        </div>
+      ) : null}
     </div>
   );
 }
