@@ -1,5 +1,5 @@
 import { Button } from '@/components/Button'
-import { useNavigate as useNavigateRouterDom } from 'react-router-dom'
+import { useNavigate as useNavigateRouterDom } from "react-router";
 
 export function LottiesComponent() {
   const navigate = useNavigateRouterDom()

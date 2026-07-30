@@ -7,7 +7,7 @@ import {
   Route,
   Routes,
   useLocation,
-} from "react-router-dom";
+} from "react-router";
 import { ViperComponent } from "./routes/viper";
 
 const V2Component = lazy(() =>
