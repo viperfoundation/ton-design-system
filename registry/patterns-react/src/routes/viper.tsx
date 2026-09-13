@@ -78,13 +78,58 @@ const timeline = [
   },
 ];
 
+const tonDropSteps = [
+  {
+    step: "01",
+    title: "See who's nearby",
+    description:
+      "Open People Nearby and Viper shows the Viper users around you over Bluetooth.",
+  },
+  {
+    step: "02",
+    title: "Know it's really them",
+    description:
+      "Every person on the list has proven they own their account. Nobody can pretend to be someone else.",
+  },
+  {
+    step: "03",
+    title: "Talk with no internet",
+    description:
+      "Messages, voice notes, video circles and files go straight from phone to phone. Airplane, subway, festival, mountains.",
+  },
+  {
+    step: "04",
+    title: "Stay connected afterwards",
+    description:
+      "Once you've met, Viper can open a direct connection between you over TON, so the chat keeps going at any distance.",
+  },
+];
+
+const tonDropComparison = [
+  { feature: "Works nearby without internet", airdrop: "Yes", tonDrop: "Yes" },
+  { feature: "Messages, voice, video notes", airdrop: "No", tonDrop: "Yes" },
+  { feature: "Files", airdrop: "Yes", tonDrop: "Yes" },
+  {
+    feature: "After you walk apart",
+    airdrop: "Over",
+    tonDrop: "Keeps going over TON",
+  },
+];
+
+const tonDropPrivacy = [
+  "Nobody can tell who you are from the Bluetooth signal, at most that a Viper user is nearby.",
+  "You decide when you're visible. Anon Mode hides you completely.",
+  "Everything is end-to-end encrypted, over Bluetooth, over TON and through the relay alike.",
+  "Fully offline meetings involve no servers, so nobody learns that you met.",
+];
+
 const architectureDetails = {
   viper: {
     product: "Viper",
     label: "Mixed",
     badge: "Mixed",
     summary:
-      "Viper combines centralized infrastructure with direct peer-to-peer connections between clients.",
+      "Viper combines centralized infrastructure with direct peer-to-peer connections and nearby Bluetooth links between clients.",
     items: [
       {
         title: "Centralized relay",
@@ -100,6 +145,11 @@ const architectureDetails = {
         title: "Direct P2P",
         description:
           "When network conditions allow it, clients connect directly without routing traffic through the relay.",
+      },
+      {
+        title: "Bluetooth (TON Drop)",
+        description:
+          "Nearby clients exchange end-to-end encrypted messages and files over Bluetooth with no internet. Route priority: direct P2P, then Bluetooth, then relay.",
       },
     ],
     note: "Centralized bootstrap and direct P2P is currently in dev mode and may change.",
@@ -319,6 +369,18 @@ const positioningRows = [
     whatsapp: "No",
   },
   {
+    direction: "Nearby offline messaging",
+    viper: "Yes",
+    keet: "No",
+    session: "No",
+    signal: "No",
+    simplex: "No",
+    status: "No",
+    telegram: "No",
+    threema: "No",
+    whatsapp: "No",
+  },
+  {
     direction: "Architecture",
     viper: "Mixed",
     keet: "Mixed",
@@ -408,6 +470,12 @@ export function ViperComponent() {
                 className="transition hover:text-slate-950 dark:hover:text-white"
               >
                 Architecture
+              </a>
+              <a
+                href="#ton-drop"
+                className="transition hover:text-slate-950 dark:hover:text-white"
+              >
+                TON Drop
               </a>
               <a
                 href="#network"
@@ -777,6 +845,88 @@ export function ViperComponent() {
             </Card>
           ))}
         </div>
+      </section>
+
+      <section
+        id="ton-drop"
+        className="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8"
+      >
+        <div className="mb-10 max-w-3xl">
+          <Typography variant="eyebrow" tone="primary">
+            TON Drop
+          </Typography>
+          <Typography as="h2" variant="heading" className="mt-4">
+            Bluetooth to meet. TON to stay connected.
+          </Typography>
+          <Typography variant="lead" tone="subtle" className="mt-4!">
+            Like AirDrop, but distance doesn't have to end the conversation.
+            People nearby find each other in Viper and talk with no internet,
+            no phone number and no username.
+          </Typography>
+        </div>
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="grid gap-5 sm:grid-cols-2">
+            {tonDropSteps.map((item) => (
+              <Card as="article" key={item.step} className="p-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-500 text-base font-semibold text-white shadow-[0_14px_34px_rgba(14,165,233,0.35)]">
+                  {item.step}
+                </div>
+                <Typography as="h3" variant="lead" className="mt-4!">
+                  {item.title}
+                </Typography>
+                <Typography variant="body" tone="subtle" className="mt-2!">
+                  {item.description}
+                </Typography>
+              </Card>
+            ))}
+          </div>
+          <div className="grid gap-5">
+            <Card className="overflow-x-auto p-2 sm:p-4">
+              <table className="min-w-full border-separate border-spacing-0 text-left text-sm">
+                <thead>
+                  <tr className="text-slate-500 dark:text-slate-400">
+                    <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10" />
+                    <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
+                      AirDrop
+                    </th>
+                    <th className="border-b border-slate-200/70 px-4 py-3 font-medium dark:border-white/10">
+                      TON Drop
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tonDropComparison.map((row) => (
+                    <tr key={row.feature}>
+                      <td className="border-b border-slate-200/60 px-4 py-3 dark:border-white/10">
+                        {row.feature}
+                      </td>
+                      <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-600 dark:border-white/10 dark:text-slate-300">
+                        {row.airdrop}
+                      </td>
+                      <td className="border-b border-slate-200/60 px-4 py-3 font-mono text-slate-950 dark:border-white/10 dark:text-white">
+                        {row.tonDrop}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </Card>
+            <Card className="bg-slate-950 p-7 text-white dark:border-white/10">
+              <Typography variant="eyebrow" tone="primary">
+                Privacy nearby
+              </Typography>
+              <ul className="mt-4 space-y-3 text-sm text-slate-300">
+                {tonDropPrivacy.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </Card>
+          </div>
+        </div>
+        <Typography variant="caption" tone="subtle" className="mt-4! sm:px-6">
+          Bluetooth range is about the size of a room or a small hall. Low
+          Power Mode on iPhone can make the connection less stable.
+        </Typography>
       </section>
 
       <section
